@@ -28,6 +28,12 @@
 			protected function onDragDrop(event:NativeDragEvent):void {
 				// somehow stores files in array and dispatches through Signal 
 				// used by ViewMediator
+				
+				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
+				var file:File = files[0];
+				if( file.url != null ){
+					dispatch(new SystemEvent(SystemEvent.LOAD_FILE, file.url));			
+				}
 			}
 			
 		]]>
