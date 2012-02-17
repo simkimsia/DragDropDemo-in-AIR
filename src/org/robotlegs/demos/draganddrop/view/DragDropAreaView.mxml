@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300"
+		 creationComplete="initApp()"
+		 >
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			
+			protected function initApp():void {
+				addEventListener(NativeDragEvent.NATIVE_DRAG_ENTER, onDragEnter);
+				addEventListener(NativeDragEvent.NATIVE_DRAG_DROP, onDrop);
+			}
+			
+			protected function onDragEnter(event:NativeDragEvent):void {
+				var url : String = event.clipboard.getData( ClipboardFormats.URL_FORMAT ) as String;
+				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
+				
+				if( ( files != null && files.length >= 0 ) || ( url != null ) ){ 
+					NativeDragManager.acceptDragDrop(this);
+				}
+			}
+			
+			protected function onDragDrop(event:NativeDragEvent):void {
+				// somehow stores files in array and dispatches through Signal 
+				// used by ViewMediator
+			}
+			
+		]]>
+	</fx:Script>
+	
+</s:Group>
