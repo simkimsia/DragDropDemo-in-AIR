@@ -13,7 +13,7 @@
 			
 			protected function initApp():void {
 				addEventListener(NativeDragEvent.NATIVE_DRAG_ENTER, onDragEnter);
-				addEventListener(NativeDragEvent.NATIVE_DRAG_DROP, onDrop);
+				addEventListener(NativeDragEvent.NATIVE_DRAG_DROP, onDragDrop);
 			}
 			
 			protected function onDragEnter(event:NativeDragEvent):void {
@@ -32,7 +32,7 @@
 				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
 				var file:File = files[0];
 				if( file.url != null ){
-					dispatch(new SystemEvent(SystemEvent.LOAD_FILE, file.url));			
+					//dispatch(new SystemEvent(SystemEvent.LOAD_FILE, file.url));			
 				}
 			}
 			
