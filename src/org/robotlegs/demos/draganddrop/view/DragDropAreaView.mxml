@@ -38,5 +38,6 @@
 			
 		]]>
 	</fx:Script>
+	<s:Label x="105" y="111" text="Drag Drop your files here&#xd;"/>
 	
 </s:Group>
