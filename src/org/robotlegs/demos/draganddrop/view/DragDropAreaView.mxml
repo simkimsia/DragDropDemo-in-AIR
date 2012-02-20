@@ -11,6 +11,11 @@
 	<fx:Script>
 		<![CDATA[
 			
+			import org.robotlegs.demos.draganddrop.model.events.FileDrop;
+			
+			import flash.events.EventDispatcher;
+			import flash.events.Event;
+			
 			protected function initApp():void {
 				addEventListener(NativeDragEvent.NATIVE_DRAG_ENTER, onDragEnter);
 				addEventListener(NativeDragEvent.NATIVE_DRAG_DROP, onDragDrop);
@@ -32,6 +37,7 @@
 				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
 				var file:File = files[0];
 				if( file.url != null ){
+					//dispatch(new FileDrop());
 					//dispatch(new SystemEvent(SystemEvent.LOAD_FILE, file.url));			
 				}
 			}
