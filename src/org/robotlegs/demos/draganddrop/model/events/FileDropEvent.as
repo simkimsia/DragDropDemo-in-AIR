@@ -1,18 +1,18 @@
 package org.robotlegs.demos.draganddrop.model.events {
 	
 	import flash.events.Event;
-	public class FileDrop extends Event {
+	public class FileDropEvent extends Event {
 		public static const FILE_DROP:String='org.robotlegs.demos.draganddrop.model.events.FileDrop.FILE_DROP';
-		protected var _files:String;
-		public function FileDrop(type:String, $files:String, bubbles:Boolean=false, cancelable:Boolean=false) {
+		protected var _files:Array;
+		public function FileDropEvent(type:String, $files:Array, bubbles:Boolean=false, cancelable:Boolean=false) {
 			super(type, bubbles, cancelable);
 			_files=$files;
 		}
-		public function get files():String {
+		public function get files():Array {
 			return _files;
 		}
 		override public function clone():Event {
-			return new FileDrop(type, files, bubbles, cancelable);
+			return new FileDropEvent(type, files, bubbles, cancelable);
 		}
 		override public function toString():String {
 			return formatToString('FileDrop', 'type', 'bubbles', 'cancelable', 'files');

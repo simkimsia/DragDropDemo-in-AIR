@@ -11,10 +11,10 @@
 	<fx:Script>
 		<![CDATA[
 			
-			import org.robotlegs.demos.draganddrop.model.events.FileDrop;
-			
-			import flash.events.EventDispatcher;
 			import flash.events.Event;
+			import flash.events.EventDispatcher;
+			
+			import org.robotlegs.demos.draganddrop.model.events.FileDropEvent;
 			
 			protected function initApp():void {
 				addEventListener(NativeDragEvent.NATIVE_DRAG_ENTER, onDragEnter);
@@ -35,11 +35,13 @@
 				// used by ViewMediator
 				
 				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
-				var file:File = files[0];
-				if( file.url != null ){
-					//dispatch(new FileDrop());
-					//dispatch(new SystemEvent(SystemEvent.LOAD_FILE, file.url));			
+				
+				
+				if (files != null) {
+					// we are dispatching the files Array in order to be captured and used by the Mediator
+					dispatchEvent(new FileDropEvent(FileDropEvent.FILE_DROP, files));	
 				}
+				
 			}
 			
 		]]>
