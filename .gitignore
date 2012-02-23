@@ -1,0 +1,11 @@
+*.kpf
+.idea
+pmip
+*.tmproj
+.DS_Store
+*.DS_Store
+tags
+
+## ignore bin-debug
+bin-debug/*
+
