@@ -10,7 +10,7 @@ package org.robotlegs.demos.draganddrop.service
 		
 		private var __destinationFolder:String = 'destination';
 		
-		public function process(filesToCopy:Vector.<File>) {
+		public function process(filesToCopy:Vector.<File>):void {
 			// first we determine the destination path using FileReference
 			var path:String = this.__destinationFolder + File.separator;
 			
