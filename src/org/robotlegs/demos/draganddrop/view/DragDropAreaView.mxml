@@ -23,7 +23,7 @@
 			
 			protected function onDragEnter(event:NativeDragEvent):void {
 				var url : String = event.clipboard.getData( ClipboardFormats.URL_FORMAT ) as String;
-				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
+				var files : Vector.<File> = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Vector.<File>;
 				
 				if( ( files != null && files.length >= 0 ) || ( url != null ) ){ 
 					NativeDragManager.acceptDragDrop(this);
@@ -34,7 +34,7 @@
 				// somehow stores files in array and dispatches through Signal 
 				// used by ViewMediator
 				
-				var files : Array = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array;
+				var files : Vector.<File> = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Vector.<File>;
 				
 				
 				if (files != null) {
