@@ -16,14 +16,14 @@ package org.robotlegs.demos.draganddrop.controller.commands
 		[Inject]
 		public var fileCopyService:FileCopyService;
 		
-		private var allowedExtensions = new Array('png', 'jpg', 'jpeg');
+		private var allowedExtensions:Array = new Array('png', 'jpg', 'jpeg');
 		
 		override public function execute():void {
 			// create empty Array to contain legit files
 			var allowedFiles:Vector.<File> = new Vector.<File>();
 			
 			// loop through passed files
-			for each(var file in event.files) {
+			for each(var file:File in event.files) {
 				// check if passed files are legit
 				if (allowedExtensions.indexOf(file.extension) != -1) {
 					// if legit, put in allowedFiles Array
