@@ -39,7 +39,7 @@
 				var files : FileCollection = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as FileCollection;
 				
 				
-				if (files != null) {
+				if (files.vector.length > 0) {
 					// we are dispatching the files Array in order to be captured and used by the Mediator
 					dispatchEvent(new FileDropEvent(FileDropEvent.FILE_DROP, files));	
 				}
