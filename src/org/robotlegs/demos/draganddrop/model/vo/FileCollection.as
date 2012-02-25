@@ -1,10 +1,10 @@
 package org.robotlegs.demos.draganddrop.model.vo
 {
-	import mx.collections.ArrayCollection;
+	import flash.filesystem.File;
 	
-	public class FileCollection extends ArrayCollection
+	public class FileCollection extends Vector.<File>
 	{
-		public function FileCollection(source:Array=null)
+		public function FileCollection(source:Vector.<File>=null)
 		{
 			super(source);
 		}
