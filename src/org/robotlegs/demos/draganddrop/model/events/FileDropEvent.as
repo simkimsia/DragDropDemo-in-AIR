@@ -2,15 +2,17 @@ package org.robotlegs.demos.draganddrop.model.events {
 	
 	import flash.events.Event;
 	import flash.filesystem.File;
+	import org.robotlegs.demos.draganddrop.model.vo.FileCollection;
 
 	public class FileDropEvent extends Event {
 		public static const FILE_DROP:String='org.robotlegs.demos.draganddrop.model.events.FileDrop.FILE_DROP';
-		protected var _files:Vector.<File>;
-		public function FileDropEvent(type:String, $files:Vector.<File>, bubbles:Boolean=false, cancelable:Boolean=false) {
+		protected var _files:FileCollection;
+		
+		public function FileDropEvent(type:String, $files:FileCollection, bubbles:Boolean=false, cancelable:Boolean=false) {
 			super(type, bubbles, cancelable);
 			_files=$files;
 		}
-		public function get files():Vector.<File> {
+		public function get files():FileCollection {
 			return _files;
 		}
 		override public function clone():Event {
