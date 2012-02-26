@@ -2,15 +2,30 @@ package org.robotlegs.demos.draganddrop.model.vo
 {
 	import flash.filesystem.File;
 	
-	public class FileCollection 
+	import mx.collections.ArrayCollection;
+	
+	public class FileCollection extends ArrayCollection 
 	{
 		
-		public var vector:Vector.<File> = new Vector.<File>;
-		
-		public function FileCollection(source:Vector.<File>=null)
-		{
-			this.vector = source;
+		public function FileCollection(source:Array=null)
+		{	
+			var files:Array = [];
+			if (source != null) {
+				files = FileCollection.filterFiles(source);
+			}
 			
+			super(files);
+			
+		}
+		
+		private static function filterFiles(source:Array):Array {
+			var ret:Array = [];
+			
+			for each (var elem:* in source) {
+				if (elem is File)
+				ret.push(elem);
+			}
+			return ret;
 		}
 		
 	}

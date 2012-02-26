@@ -9,6 +9,7 @@ package org.robotlegs.demos.draganddrop.view
 		override public function onRegister():void
 		{
 			// addContextListener is we pick up app events and translate them for the view
+			//addContextListener(FileDropEvent.FILE_DROP, dispatch, FileDropEvent);
 			
 			// addViewListener is we pick up user actions and translate them for the app
 			addViewListener(FileDropEvent.FILE_DROP, dispatch, FileDropEvent);

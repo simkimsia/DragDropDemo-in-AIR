@@ -17,24 +17,24 @@ package org.robotlegs.demos.draganddrop.controller.commands
 		[Inject]
 		public var fileCopyService:FileCopyService;
 		
-		[Inject]
-		public var allowedFiles:FileCollection;
+		
+		public var allowedFiles:FileCollection = new FileCollection();
 		
 		private var allowedExtensions:Array = new Array('png', 'jpg', 'jpeg');
 		
 		override public function execute():void {
 			
 			// loop through passed files
-			for each(var file:File in event.files.vector) {
+			for each(var file:File in event.files) {
 				// check if passed files are legit
 				if (allowedExtensions.indexOf(file.extension) != -1) {
 					// if legit, put in allowedFiles Array
-					allowedFiles.vector.push(file);
+					this.allowedFiles.addItem(file);
 				}
 			}
 			
 			// send to FileCopyService for processing
-			fileCopyService.process(allowedFiles);
+			fileCopyService.process(this.allowedFiles);
 		}
 	}
 }

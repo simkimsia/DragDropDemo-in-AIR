@@ -15,7 +15,6 @@
 			import flash.events.EventDispatcher;
 			
 			import org.robotlegs.demos.draganddrop.model.events.FileDropEvent;
-			
 			import org.robotlegs.demos.draganddrop.model.vo.FileCollection;
 			
 			protected function initApp():void {
@@ -25,9 +24,9 @@
 			
 			protected function onDragEnter(event:NativeDragEvent):void {
 				var url : String = event.clipboard.getData( ClipboardFormats.URL_FORMAT ) as String;
-				var files : FileCollection = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as FileCollection;
+				var files : FileCollection = new FileCollection(event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array);
 				
-				if( ( files != null && files.vector.length >= 0 ) || ( url != null ) ){ 
+				if( ( files != null && files.length >= 0 ) || ( url != null ) ){ 
 					NativeDragManager.acceptDragDrop(this);
 				}
 			}
@@ -36,10 +35,10 @@
 				// somehow stores files in array and dispatches through Signal 
 				// used by ViewMediator
 				
-				var files : FileCollection = event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as FileCollection;
+				var files : FileCollection = new FileCollection(event.clipboard.getData( ClipboardFormats.FILE_LIST_FORMAT ) as Array);
 				
 				
-				if (files.vector.length > 0) {
+				if (files.length > 0) {
 					// we are dispatching the files Array in order to be captured and used by the Mediator
 					dispatchEvent(new FileDropEvent(FileDropEvent.FILE_DROP, files));	
 				}

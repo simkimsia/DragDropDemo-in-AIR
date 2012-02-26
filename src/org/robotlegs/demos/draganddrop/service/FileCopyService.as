@@ -18,10 +18,10 @@ package org.robotlegs.demos.draganddrop.service
 			
 			// we take these filesToCopy
 			// and copy a version to destination path
-			for each(var file:File in filesToCopy.vector) {
+			for each(var file:File in filesToCopy) {
 				// form the new destination FileReference per file
 				var newPath:String = path + file.name;
-				var destination:FileReference = File.applicationStorageDirectory.resolvePath(newPath);
+				var destination:FileReference = File.applicationStorageDirectory.resolvePath(file.name);
 				// actual copying of the file to the new destination
 				file.copyTo(destination);
 			}
