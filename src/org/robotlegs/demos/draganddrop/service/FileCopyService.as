@@ -21,7 +21,7 @@ package org.robotlegs.demos.draganddrop.service
 			for each(var file:File in filesToCopy) {
 				// form the new destination FileReference per file
 				var newPath:String = path + file.name;
-				var destination:FileReference = File.applicationStorageDirectory.resolvePath(file.name);
+				var destination:FileReference = File.applicationStorageDirectory.resolvePath(newPath);
 				// actual copying of the file to the new destination
 				file.copyTo(destination);
 			}
