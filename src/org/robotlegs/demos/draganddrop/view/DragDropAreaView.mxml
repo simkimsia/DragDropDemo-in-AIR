@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300"
-		 creationComplete="initApp()"
-		 >
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:ui="org.robotlegs.demos.draganddrop.view.ui.*"
+		 xmlns:skins="org.robotlegs.demos.draganddrop.view.skins.*"
+		 width="400" height="300" creationComplete="initApp()" currentState="initial">
+	<s:states>
+		<s:State name="initial"/>
+		<s:State name="save_mouseover"/>
+	</s:states>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		
+		s|Button {
+			skinClass:ClassReference("org.robotlegs.demos.draganddrop.view.skins.ButtonBitmapImage");
+		}
+	</fx:Style>
 	
 	<fx:Script>
 		<![CDATA[
@@ -48,5 +62,8 @@
 		]]>
 	</fx:Script>
 	<s:Label x="105" y="111" text="Drag Drop your files here&#xd;"/>
+	
+	
+	<skins:ButtonBitmapImage id="testButton" />
 	
 </s:Group>
