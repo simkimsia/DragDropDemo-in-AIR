@@ -4,7 +4,7 @@
 		 xmlns:mx="library://ns.adobe.com/flex/mx"
 		 xmlns:ui="org.robotlegs.demos.draganddrop.view.ui.*"
 		 xmlns:skins="org.robotlegs.demos.draganddrop.view.skins.*"
-		 width="400" height="300" creationComplete="initApp()" currentState="initial">
+		 width="400" height="300" creationComplete="initApp()" currentState="initial" xmlns:controls="org.robotlegs.demos.draganddrop.view.controls.*">
 	<s:states>
 		<s:State name="initial"/>
 		<s:State name="save_mouseover"/>
@@ -18,7 +18,7 @@
 		@namespace mx "library://ns.adobe.com/flex/mx";
 		
 		s|Button {
-			skinClass:ClassReference("org.robotlegs.demos.draganddrop.view.skins.ButtonBitmapImage");
+			skinClass:ClassReference("org.robotlegs.demos.draganddrop.view.controls.ButtonBitmapImage");
 		}
 	</fx:Style>
 	
@@ -64,6 +64,10 @@
 	<s:Label x="105" y="111" text="Drag Drop your files here&#xd;"/>
 	
 	
-	<skins:ButtonBitmapImage id="testButton" />
+	<controls:ButtonBitmapImage id="testButton" source="@Embed(source='/theme/assets/buttons/SAVE-icon.png', scaleGridLeft='6', scaleGridRight='20', scaleGridTop='6', scaleGridBottom='21')"
+							 hoverSource="@Embed(source='/theme/assets/buttons/SAVE-icon-mouseover.png', scaleGridLeft='6', scaleGridRight='20', scaleGridTop='6', scaleGridBottom='21')"
+							 downSource="@Embed(source='/theme/assets/buttons/SAVE-icon-selected.png', scaleGridLeft='6', scaleGridRight='20', scaleGridTop='6', scaleGridBottom='21')"
+							 
+							 />
 	
 </s:Group>
