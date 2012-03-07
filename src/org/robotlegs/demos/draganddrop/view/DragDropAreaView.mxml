@@ -73,6 +73,7 @@
 	
 	<buttons:Save id="testButton"
 				  click.initial="testButton_clickHandler(event)"/>
-	
+	<buttons:Info id="info"
+				  x.initial="75" y.initial="1"/>
 	
 </s:Group>
