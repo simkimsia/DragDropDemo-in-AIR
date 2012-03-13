@@ -4,7 +4,18 @@
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
 					   xmlns:dragdrop="org.robotlegs.demos.draganddrop.*"
 					   xmlns:view="org.robotlegs.demos.draganddrop.view.*"
+					   
+					   height="100%"
 					   >
+	
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		
+		s|WindowedApplication {
+			background-alpha:"0.7"; 
+		}
+	</fx:Style>
 	
 	
 	<fx:Declarations>
