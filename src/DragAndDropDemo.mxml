@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 					   xmlns:s="library://ns.adobe.com/flex/spark" 
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
 					   xmlns:dragdrop="org.robotlegs.demos.draganddrop.*"
-					   xmlns:view="org.robotlegs.demos.draganddrop.view.*"
-					   
-					   height="100%"
-					   >
+					   xmlns:view="org.robotlegs.demos.draganddrop.view.*">
 	
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
 		@namespace mx "library://ns.adobe.com/flex/mx";
 		
-		s|WindowedApplication {
+		s|Application {
 			background-alpha:"0.7"; 
+			padding: 0px;
+			
 		}
 	</fx:Style>
 	
@@ -23,5 +22,18 @@
 		<dragdrop:DragAndDropContext contextView="{this}"/>
 	</fx:Declarations>
 	
-	<view:DragDropAreaView />
-</s:WindowedApplication>
+	<s:BorderContainer id="layoutCanvas" width="100%" height="100%">
+		<s:Image id="applicationClose" right="5" top="2"
+				 click="stage.nativeWindow.close()"
+				 source="@Embed('theme/assets/buttons/CLOSE WINDOW icon.png')"/>
+		<s:Image id="applicationMaximize" right="25" top="2"
+				 click="stage.nativeWindow.maximize()"
+				 source="@Embed('theme/assets/buttons/EXPAND WINDOW icon.png')"/>
+		<s:Image id="applicationMinimize" right="45" top="2"
+				 click="stage.nativeWindow.minimize()"
+				 source="@Embed('theme/assets/buttons/COLLAPSED WINDOW icon.png')"/>
+		<!--<view:DragDropAreaView right="100" top ="100"/>-->	
+	</s:BorderContainer>
+	
+	
+</s:Application>
