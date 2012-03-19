@@ -6,9 +6,11 @@
 					   xmlns:view="org.robotlegs.demos.draganddrop.view.*"
 					   mouseOver="layoutCanvas.visible = true;"
 					   mouseOut="layoutCanvas.visible = false;"
-					   creationComplete="this.maximize();"
+					   creationComplete="this.maximize()"
 					   showStatusBar="false"
 					   xmlns:controls="org.robotlegs.demos.draganddrop.view.controls.*" xmlns:buttons="org.robotlegs.demos.draganddrop.view.controls.buttons.*"
+					   maxWidth="1601"
+					   maxHeight="1611"
 	>
 	
 	<fx:Style>
@@ -28,8 +30,8 @@
 		<dragdrop:DragAndDropContext contextView="{this}"/>
 	</fx:Declarations>
 	
-	<s:Image id="background" width="100%" height="100%"
-			 source="@Embed('theme/assets/MaxBackground.png')"/>
+	<s:Image id="background" width="100%" height="100%" scaleMode="zoom" smooth="true"
+			 smoothingQuality="high" source="@Embed('theme/assets/MaxBackground.png')"/>
 	
 	<s:BorderContainer id="layoutCanvas" width="100%" height="100%" visible="true" backgroundImage="background">
 
