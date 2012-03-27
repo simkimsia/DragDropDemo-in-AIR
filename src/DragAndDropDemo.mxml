@@ -4,14 +4,11 @@
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
 					   xmlns:dragdrop="org.robotlegs.demos.draganddrop.*"
 					   xmlns:view="org.robotlegs.demos.draganddrop.view.*"
-					   mouseOver="layoutCanvas.visible = true;"
-					   mouseOut="layoutCanvas.visible = false;"
+					   xmlns:buttons="org.robotlegs.demos.draganddrop.view.controls.buttons.*"
 					   creationComplete="this.maximize()"
 					   showStatusBar="false"
-					   xmlns:controls="org.robotlegs.demos.draganddrop.view.controls.*" xmlns:buttons="org.robotlegs.demos.draganddrop.view.controls.buttons.*"
 					   maxWidth="1601"
-					   maxHeight="1611"
-	>
+					   maxHeight="1611">
 	
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
@@ -24,22 +21,20 @@
 		}
 	</fx:Style>
 	
-	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 		<dragdrop:DragAndDropContext contextView="{this}"/>
 	</fx:Declarations>
 	
-	<s:Image id="background" width="100%" height="100%" scaleMode="zoom" smooth="true"
-			 smoothingQuality="high" source="@Embed('theme/assets/MaxBackground.png')"/>
+	<s:Image id="background" width="100%" height="100%" 
+			 scaleMode="zoom" source="@Embed('theme/assets/MaxBackground.png')"/>
 	
 	<s:BorderContainer id="layoutCanvas" width="100%" height="100%" visible="true" backgroundImage="background">
-
+		
 		<buttons:ApplicationClose right="5" top="2" id="applicationClose" />
 		<buttons:ApplicationMaximize right="25" top="2" id="applicationMaximize" />
 		<buttons:ApplicationMinimize right="45" top="2" id="applicationMinimize" />
 		
-			
 	</s:BorderContainer>
 	
 	
