@@ -34,6 +34,9 @@
 		<buttons:ApplicationClose right="5" top="2" id="applicationClose" />
 		<buttons:ApplicationMaximize right="25" top="2" id="applicationMaximize" />
 		<buttons:ApplicationMinimize right="45" top="2" id="applicationMinimize" />
+		<buttons:Save left="25" top="2" id="saveThisStory" />
+		<buttons:SaveAs left="55" top="2" id="saveThisStoryAs" />
+		<buttons:AddPage left="85" top="2" id="addPageToStory" />
 		
 	</s:BorderContainer>
 	
